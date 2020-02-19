@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Admin, Resource } from 'react-admin';
+import drfProvider from 'ra-data-drf';
+import {TricycleCreate, TricycleEdit, TricycleList} from "./Tricycles";
+import {GarageCreate, GarageEdit, GarageList} from "./Garages";
+import {PaymentCreate, PaymentEdit, PaymentsList} from "./Payments";
+import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
+import HouseIcon from '@material-ui/icons/House';
+import MoneyIcon from '@material-ui/icons/Money';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+
+const App = () => (
+    <Admin dataProvider={drfProvider('http://127.0.0.1:8000/api')}>
+      <Resource name="tricycles" list={TricycleList} edit={TricycleEdit} create={TricycleCreate} icon={DirectionsCarIcon} />
+      <Resource name="garages" list={GarageList} edit={GarageEdit} create={GarageCreate} icon={HouseIcon} />
+      <Resource name="payments" list={PaymentsList} edit={PaymentEdit} create={PaymentCreate} icon={MoneyIcon} />
+    </Admin>
+);
 
 export default App;
