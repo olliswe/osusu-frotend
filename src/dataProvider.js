@@ -1,6 +1,7 @@
 import drfProvider from "ra-data-drf";
+import {API_URL} from "./constants";
 
 
-const dataProvider = drfProvider('http://127.0.0.1:8000/api')
+const dataProvider = drfProvider(API_URL)
 
 export default dataProvider

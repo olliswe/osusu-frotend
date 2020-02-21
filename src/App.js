@@ -10,11 +10,12 @@ import HouseIcon from '@material-ui/icons/House';
 import MoneyIcon from '@material-ui/icons/Money';
 import dataProvider from "./dataProvider";
 import HelpIcon from '@material-ui/icons/Help'
+import authProvider from "./authProvider";
 
 
 
 const App = () => (
-    <Admin dataProvider={dataProvider}>
+    <Admin dataProvider={dataProvider} authProvider={authProvider}>
       <Resource name="tricycles" list={TricycleList} edit={TricycleEdit} create={TricycleCreate} show={TricycleShow} icon={DirectionsCarIcon} />
       <Resource name="garages" list={GarageList} edit={GarageEdit} create={GarageCreate} icon={HouseIcon} />
       <Resource name="payments" list={PaymentsList} edit={PaymentEdit} create={PaymentCreate} icon={MoneyIcon} />
