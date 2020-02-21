@@ -1,8 +1,14 @@
 import React from 'react';
-import { List, Datagrid, Edit, Create, SimpleForm, DateField, TextField,ReferenceInput, DateInput, NumberInput, SelectInput, } from 'react-admin';
+import { List, Datagrid, Edit, Create,
+    SimpleForm, DateField, TextField,
+    ReferenceInput, DateInput, NumberInput, SelectInput,
+    Show, SimpleShowLayout, TabbedShowLayout, Tab, ReferenceManyField,
+    NumberField
+
+} from 'react-admin';
 
 
-export const ClaimsList = (props) => (
+export const PartsList = (props) => (
     <List {...props}>
         <Datagrid rowClick="edit">
             <TextField source="tricycle" />
@@ -12,18 +18,25 @@ export const ClaimsList = (props) => (
     </List>
 );
 
-const ClaimTitle = ({ record }) => {
+const PartTitle = ({ record }) => {
     return <span> {record ? `Claim by "${record.tricycle}"` : ''}</span>;
 };
 
-export const ClaimEdit = (props) => (
+export const PartEdit = (props) => (
     <Edit title={<ClaimTitle />} {...props}>
         <SimpleForm>
+
         </SimpleForm>
     </Edit>
 );
 
-export const ClaimCreate = (props) => (
+export const PartShow = (props) => (
+    <Show {...props}>
+
+    </Show>
+)
+
+export const PartCreate = (props) => (
     <Create title="To create a Claim, please first specify the Tricycle and Garage..." {...props}>
         <SimpleForm>
             <ReferenceInput label="Tricycle" source="tricycle" reference="tricycles" validate={['required']}>
