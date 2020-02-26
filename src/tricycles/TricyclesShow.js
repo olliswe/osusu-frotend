@@ -6,13 +6,26 @@ import {
     Show,
     Tab,
     TabbedShowLayout,
-    TextField
+    TextField,
 } from "react-admin";
 import {PaymentsQuickCreateButton} from "../payments";
+import IconContentAdd from '@material-ui/icons/Add';
 import React from "react";
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
 
+/**
+ *
+  fields.append("tot_claims")
+ fields.append("total_value_claims")
+ fields.append("total_num_approved_claims")
+ fields.append("total_val_approved_claims")
+ fields.append("tot_claims_6_months")
+ fields.append("total_value_claims_6_months")
+ fields.append("total_num_approved_claims_6_months")
+ fields.append("total_val_approved_claims_6_months")
+ *
+ * **/
 const TricycleShow = (props) => {
 
     return (
@@ -26,6 +39,15 @@ const TricycleShow = (props) => {
                     <TextField source="total_value_of_payments_made_formatted" label="Total value of payments made"/>
                     <BooleanField source="payments_up_to_date"/>
                     <TextField source="outstanding_payments_formatted" label="Outstanding Payments"/>
+                    <TextField source="tot_claims" label="Total Number of Claims"/>
+                    <TextField source="total_value_claims" label="Total Value of Claims"/>
+                    <TextField source="total_num_approved_claims" label="Total Number of Approved Claims"/>
+                    <TextField source="total_val_approved_claims" label="Total Value of Approved Claims"/>
+                    <TextField source="tot_claims_6_months" label="Total Number of Claims in the past 6 months"/>
+                    <TextField source="total_value_claims_6_months" label="Total Value of Claims in the past 6 months"/>
+                    <TextField source="total_num_approved_claims_6_months" label="Total Number of Approved Claims in the past 6 months"/>
+                    <TextField source="total_val_approved_claims_6_months" label="Total Value of Approved Claims in the past 6 months"/>
+
                 </Tab>
                 <Tab label='Payments'>
                     <ReferenceManyField
@@ -58,13 +80,12 @@ const TricycleShow = (props) => {
                             />
                         </Datagrid>
                     </ReferenceManyField>
-                    <Button
-                        variant="raised"
-                        component={Link}
-                        to={`/claims/create?tricycle_id=${props.id}`}
-                        label="Add a claim"
-                        title="Add a claim"
-                    />
+                    <Button component={Link}
+                            label="Add a Claim"
+                            to={`/claims/create?tricycle_id=${props.id}`}
+                    >
+                        <IconContentAdd />
+                    </Button>
                 </Tab>
             </TabbedShowLayout>
         </Show>

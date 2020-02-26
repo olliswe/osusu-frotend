@@ -4,9 +4,11 @@ import TricyclesTitle from "./TricyclesTitle";
 
 
 const TricyclesEdit = (props) => (
-    <Edit title={<TricyclesTitle />} {...props}>
-        <SimpleForm>
-            <TextInput disabled source="full_name" />
+    <Edit title={<TricyclesTitle />} {...props} >
+        <SimpleForm
+            redirect={'show'}
+        >
+            <TextInput source="full_name" />
             <BooleanInput source="maintenance" />
         </SimpleForm>
     </Edit>

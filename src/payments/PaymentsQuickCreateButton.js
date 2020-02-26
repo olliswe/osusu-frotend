@@ -64,7 +64,7 @@ export default props => {
 
     return (
         <>
-            <Button onClick={handleOpenDialog} label="ra.action.create">
+            <Button onClick={handleOpenDialog} label="Add a Payment">
                 <IconContentAdd />
             </Button>
             <Dialog
