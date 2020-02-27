@@ -7,6 +7,8 @@ import {
     Tab,
     TabbedShowLayout,
     TextField,
+    EditButton,
+    NumberField
 } from "react-admin";
 import {PaymentsQuickCreateButton} from "../payments";
 import IconContentAdd from '@material-ui/icons/Add';
@@ -36,17 +38,59 @@ const TricycleShow = (props) => {
                     <TextField source="start_date" label="Start date"/>
                     <BooleanField source="maintenance"/>
                     <BooleanField source="waiting_period" label="Completed Waiting Period" />
-                    <TextField source="total_value_of_payments_made_formatted" label="Total value of payments made"/>
+                    <NumberField
+                        source="total_value_of_payments_made"
+                        options={{
+                            style: 'currency',
+                            currency: 'SLL',
+                        }}
+                        label="Total value of payments made"
+                    />
                     <BooleanField source="payments_up_to_date"/>
-                    <TextField source="outstanding_payments_formatted" label="Outstanding Payments"/>
+                    <NumberField
+                        source="outstanding_payments"
+                        options={{
+                            style: 'currency',
+                            currency: 'SLL',
+                        }}
+                        label="Outstanding Payments"
+                    />
                     <TextField source="tot_claims" label="Total Number of Claims"/>
-                    <TextField source="total_value_claims" label="Total Value of Claims"/>
+                    <NumberField
+                        source="total_value_of_claims"
+                        options={{
+                            style: 'currency',
+                            currency: 'SLL',
+                        }}
+                        label="Total Value of Claims"
+                    />
                     <TextField source="total_num_approved_claims" label="Total Number of Approved Claims"/>
-                    <TextField source="total_val_approved_claims" label="Total Value of Approved Claims"/>
+                    <NumberField
+                        source="total_val_approved_claims"
+                        options={{
+                            style: 'currency',
+                            currency: 'SLL',
+                        }}
+                        label="Total Value of Approved Claims"
+                    />
                     <TextField source="tot_claims_6_months" label="Total Number of Claims in the past 6 months"/>
-                    <TextField source="total_value_claims_6_months" label="Total Value of Claims in the past 6 months"/>
+                    <NumberField
+                        source="total_value_claims_6_months"
+                        options={{
+                            style: 'currency',
+                            currency: 'SLL',
+                        }}
+                        label="Total Value of Claims in the past 6 months"
+                    />
                     <TextField source="total_num_approved_claims_6_months" label="Total Number of Approved Claims in the past 6 months"/>
-                    <TextField source="total_val_approved_claims_6_months" label="Total Value of Approved Claims in the past 6 months"/>
+                    <NumberField
+                        source="total_val_approved_claims_6_months"
+                        options={{
+                            style: 'currency',
+                            currency: 'SLL',
+                        }}
+                        label="Total Value of Approved Claims in the past 6 months"
+                    />
 
                 </Tab>
                 <Tab label='Payments'>
@@ -56,8 +100,15 @@ const TricycleShow = (props) => {
                         target="tricycle"
                     >
                         <Datagrid>
-                            <TextField source="amount" label="Payment Value"/>
                             <DateField source="date"/>
+                            <NumberField
+                                source="amount"
+                                options={{
+                                    style: 'currency',
+                                    currency: 'SLL',
+                                }}
+                                label="Payment Value"
+                            />
                             <DeleteButton
                                 redirect={props.location.pathname}
                             />
@@ -73,8 +124,16 @@ const TricycleShow = (props) => {
                     >
                         <Datagrid rowClick="show">
                             <TextField source="garage.name" label="Garage"/>
-                            <TextField source="total_value" label="Total Value of Claim"/>
+                            <NumberField
+                                source="total_value"
+                                options={{
+                                    style: 'currency',
+                                    currency: 'SLL',
+                                }}
+                                label="Total Value of Claim"
+                            />
                             <TextField source="status" label="Status"/>
+                            <EditButton label="Edit Status"/>
                             <DeleteButton
                                 redirect={props.location.pathname}
                             />

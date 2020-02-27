@@ -6,7 +6,8 @@ import {
     Show,
     Tab,
     TabbedShowLayout,
-    TextField
+    TextField,
+    DateField
 } from "react-admin";
 import {PartClaimQuickCreateButton} from "../part_claims";
 import React from "react";
@@ -21,7 +22,15 @@ const ClaimsShow = (props) => {
                 <Tab label='Details'>
                     <TextField source="tricycle.full_name" label="Claim made by Tricycle"/>
                     <TextField source="garage.name" label="Garage"/>
-                    <TextField source="total_value" label="Total Value"/>
+                    <DateField source="date"/>
+                    <NumberField
+                        source="total_value"
+                        options={{
+                            style: 'currency',
+                            currency: 'SLL',
+                        }}
+                        label="Total Value"
+                    />
                 </Tab>
                 <Tab label='Parts'>
                     <ReferenceManyField
@@ -31,9 +40,23 @@ const ClaimsShow = (props) => {
                     >
                         <Datagrid>
                             <TextField source="part.name" label="Part"/>
-                            <TextField source="part.formatted_value" label="Part Value"/>
+                            <NumberField
+                                source="part.value"
+                                options={{
+                                    style: 'currency',
+                                    currency: 'SLL',
+                                }}
+                                label="Part Value"
+                            />
                             <NumberField source="number" label="Number of Parts"/>
-                            <TextField source="value" label="Total Value"/>
+                            <NumberField
+                                source="part.value"
+                                options={{
+                                    style: 'currency',
+                                    currency: 'SLL',
+                                }}
+                                label="Total Value"
+                            />
                             <DeleteButton
                                 redirect={props.location.pathname}
                             />
