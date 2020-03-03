@@ -57,7 +57,7 @@ const TricycleShow = (props) => {
                     />
                     <TextField source="tot_claims" label="Total Number of Claims"/>
                     <NumberField
-                        source="total_value_of_claims"
+                        source="total_value_claims"
                         options={{
                             style: 'currency',
                             currency: 'SLL',
