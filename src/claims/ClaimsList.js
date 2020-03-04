@@ -1,12 +1,14 @@
-import {Datagrid, EditButton, List, NumberField, TextField, DateField} from "react-admin";
+import {Datagrid, EditButton, List, NumberField, TextField, DateField, Tab} from "react-admin";
 import React from "react";
+import {TricycleLinkField} from "../tricycles";
+import {GarageLinkField} from "../garages";
 
 const ClaimsList = (props) => (
-    <List {...props}>
+    <List {...props} sort={{ field: 'date', order: 'DESC' }}>
         <Datagrid rowClick="show">
             <NumberField source="id" />
-            <TextField source="tricycle.full_name" label='Tricycle'/>
-            <TextField source="garage.name" label='Garage'/>
+            <TricycleLinkField label="Tricycle"/>
+            <GarageLinkField label="Garage"/>
             <DateField source="date"/>
             <NumberField
                 source="total_value"
@@ -15,6 +17,7 @@ const ClaimsList = (props) => (
                     currency: 'SLL',
                 }}
                 label="Total value"
+                sortable={false}
             />
             <TextField source="status" label='Status'/>
             <EditButton label="Edit Status"/>

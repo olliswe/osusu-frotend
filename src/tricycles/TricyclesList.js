@@ -8,7 +8,7 @@ const TricycleFilter = (props) => (
 );
 
 const TricyclesList = (props) => (
-    <List {...props} filters={<TricycleFilter/>}>
+    <List {...props} filters={<TricycleFilter/>} sort={{ field: 'id', order: 'DESC' }}>
         <Datagrid rowClick="show">
             <TextField source="id" />
             <TextField source="full_name" />

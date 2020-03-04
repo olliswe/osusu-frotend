@@ -13,7 +13,7 @@ import {
 } from 'react-admin'
 import IconContentAdd from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
-
+import {TricycleLinkField} from "../tricycles";
 
 
 const GaragesShow = (props) => {
@@ -60,7 +60,7 @@ const GaragesShow = (props) => {
                         target="garage"
                     >
                         <Datagrid rowClick="show">
-                            <TextField source="tricycle.full_name" label="Tricycle"/>
+                            <TricycleLinkField label="Tricycle"/>
                             <NumberField
                                 source="total_value"
                                 options={{

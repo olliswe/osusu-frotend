@@ -15,6 +15,7 @@ import IconContentAdd from '@material-ui/icons/Add';
 import React from "react";
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
+import {GarageLinkField} from "../garages";
 
 /**
  *
@@ -123,7 +124,7 @@ const TricycleShow = (props) => {
                         target="tricycle"
                     >
                         <Datagrid rowClick="show">
-                            <TextField source="garage.name" label="Garage"/>
+                            <GarageLinkField label="Garage"/>
                             <NumberField
                                 source="total_value"
                                 options={{

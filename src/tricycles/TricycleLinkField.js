@@ -1,11 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
-import {FunctionField} from 'react-admin'
+import {ReferenceField, TextField} from 'react-admin'
 
 
 const TricycleLinkField = (props) => {
     return (
-                <FunctionField source="tricycle.full_name" label="Tricycle" render={()=><Link to={'/tricycles/'+props.record.tricycle.id+'/show'}>{props.record.tricycle.full_name}</Link>}/>
+                <ReferenceField source="tricycle.id" reference="tricycles" link="show" {...props}>
+                    <TextField source="full_name"/>
+                </ReferenceField>
     );
 };
 

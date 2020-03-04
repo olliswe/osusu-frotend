@@ -13,6 +13,7 @@ import {PartClaimQuickCreateButton} from "../part_claims";
 import React from "react";
 import {connect} from 'react-redux'
 import {TricycleLinkField} from "../tricycles";
+import {GarageLinkField} from "../garages";
 
 
 const ClaimsShow = (props) => {
@@ -23,7 +24,7 @@ const ClaimsShow = (props) => {
                 <Tab label='Details'>
                     <TextField source="status"/>
                     <TricycleLinkField label="Claim made by Tricycle"/>
-                    <TextField source="garage.name" label="Garage"/>
+                    <GarageLinkField label="Garage"/>
                     <DateField source="date"/>
                     <NumberField
                         source="total_value"
@@ -42,14 +43,6 @@ const ClaimsShow = (props) => {
                     >
                         <Datagrid>
                             <TextField source="part.name" label="Part"/>
-                            <NumberField
-                                source="part.value"
-                                options={{
-                                    style: 'currency',
-                                    currency: 'SLL',
-                                }}
-                                label="Part Value"
-                            />
                             <NumberField source="number" label="Number of Parts"/>
                             <NumberField
                                 source="value"

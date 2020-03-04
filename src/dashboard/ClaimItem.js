@@ -2,6 +2,7 @@ import React from 'react';
 import {Grid, ListItem, Divider} from '@material-ui/core'
 import {formatter} from "../utils/formatter";
 import {withRouter} from 'react-router-dom'
+import {TricycleLinkField} from "../tricycles";
 
 const ClaimItem = (props) => {
     return (

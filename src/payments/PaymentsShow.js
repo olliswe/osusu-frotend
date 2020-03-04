@@ -1,10 +1,11 @@
 import React from 'react';
-import { Show, SimpleShowLayout, TextField, DateField, NumberField } from 'react-admin';
+import {Show, SimpleShowLayout, DateField, NumberField} from 'react-admin';
+import {TricycleLinkField} from "../tricycles";
 
 const PaymentsShow = (props) => (
     <Show {...props}>
         <SimpleShowLayout>
-            <TextField source="tricycle.full_name" label='Tricycle' />
+            <TricycleLinkField label="Claim made by Tricycle"/>
             <NumberField
                 source="amount"
                 options={{
