@@ -25,7 +25,7 @@ const ClaimsShow = (props) => {
                     <TextField source="status"/>
                     <TricycleLinkField label="Claim made by Tricycle"/>
                     <GarageLinkField label="Garage"/>
-                    <DateField source="date"/>
+                    <DateField source="date" locales="fr-FR"/>
                     <NumberField
                         source="total_value"
                         options={{

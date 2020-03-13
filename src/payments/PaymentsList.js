@@ -5,7 +5,7 @@ import {TricycleLinkField} from "../tricycles";
 
 const TricycleNameFilter = (props) => (
     <Filter {...props}>
-        <TextInput label="Search Tricycle" source="tricycle.full_name" alwaysOn />
+        <TextInput label="Search Tricycle" source="tricycle__full_name"  alwaysOn />
     </Filter>
 );
 
@@ -21,7 +21,7 @@ const PaymentsList = (props) => (
                     currency: 'SLL',
                 }}
             />
-            <DateField source="date" />
+            <DateField source="date" locales="fr-FR"/>
         </Datagrid>
     </List>
 );

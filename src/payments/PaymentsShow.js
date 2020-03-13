@@ -13,7 +13,7 @@ const PaymentsShow = (props) => (
                     currency: 'SLL',
                 }}
             />
-            <DateField source="date" />
+            <DateField source="date" locales="fr-FR"/>
         </SimpleShowLayout>
     </Show>
 );

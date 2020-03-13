@@ -101,7 +101,7 @@ const TricycleShow = (props) => {
                         target="tricycle"
                     >
                         <Datagrid>
-                            <DateField source="date"/>
+                            <DateField source="date" locales="fr-FR"/>
                             <NumberField
                                 source="amount"
                                 options={{

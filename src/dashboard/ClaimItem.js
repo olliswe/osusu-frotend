@@ -2,14 +2,14 @@ import React from 'react';
 import {Grid, ListItem, Divider} from '@material-ui/core'
 import {formatter} from "../utils/formatter";
 import {withRouter} from 'react-router-dom'
-import {TricycleLinkField} from "../tricycles";
+import Moment from "react-moment";
 
 const ClaimItem = (props) => {
     return (
         <ListItem button onClick={()=>{props.history.push('/claims/'+props.claim.id+'/show')}}>
             <Grid container>
                 <Grid item xs={6}>
-                    <strong>ID {props.claim.id}</strong>  |  {props.claim.date}
+                    <strong>ID {props.claim.id}</strong>  | <Moment format={"DD/MM/YYYY"}>{props.claim.date}</Moment>
                 </Grid>
                 <Grid item xs={6}>
                     {formatter.format(props.claim.total_value)}
